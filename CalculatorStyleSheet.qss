@@ -1,0 +1,82 @@
+#mainWindow {
+    background-color: #FBFBFB
+}
+
+#numberButton {
+    max-width: 110px;
+    max-height: 110px;
+    min-width: 50px;
+    min-height: 50px;
+
+    color: #848793;
+    background-color: #FEFEFE;
+
+    border: 1px solid #D5D5D5;
+    border-radius: 4px;
+
+    font-size: 30px;
+    font-family: "Consolas"
+}
+
+#numberButton:hover {
+    background-color: #EFEFEF
+}
+
+#numberButton:pressed {
+    background-color: #FEFEFE
+}
+
+#operatorButton {
+    max-width: 110px;
+    max-height: 110px;
+    min-width: 50px;
+    min-height: 50px;
+
+    color: #848793;
+    background-color: #EFEFEF;
+
+    border: 1px solid #D5D5D5;
+    border-radius: 4px;
+
+    font-size: 30px;
+    font-family: "Consolas"
+}
+
+#operatorButton:hover {
+    background-color: #DEDEDE
+}
+
+#operatorButton:pressed {
+    background-color: #EFEFEF
+}
+
+#equalButton {
+    max-width: 110px;
+    max-height: 110px;
+    min-width: 50px;
+    min-height: 50px;
+
+    color: #848793;
+    background-color: #CEE7F2;
+
+    border: 1px solid #D5D5D5;
+    border-radius: 4px;
+
+    font-size: 30px;
+    font-family: "Consolas"
+}
+
+#equalButton:hover {
+    background-color: #C3DAE5
+}
+
+#equalButton:pressed {
+    background-color: #CEE7F2
+}
+
+#inputWindow {
+    color: #848793;
+    font-size: 50px;
+    font-family: "Consolas";
+    text-align: left
+}
