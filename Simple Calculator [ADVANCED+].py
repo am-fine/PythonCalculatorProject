@@ -60,19 +60,15 @@ class Calculator:
     @Slot()  
     def button_event(self, value):
         if value == "=":
-            print(eval(self.current_input))
             answer = str(eval(self.current_input))
             self.input_window.setText(answer)
             self.current_input = ""
         elif value == "CE":
             self.current_input = self.current_input[:-1]
-            print(self.current_input)
         elif value == "C":
             self.current_input = ""
-            print(self.current_input)
         else:
             self.current_input += value
-            print(self.current_input)
         
         if value != "=":
             self.input_window.setText(self.current_input)
