@@ -1,12 +1,24 @@
 import sys
+from pathlib import Path
 from PySide6.QtWidgets import *
 from PySide6.QtGui import QColor
 from PySide6.QtCore import Slot
 
 app = QApplication([])
 
-with open(r"C:/Users/jdpat/Downloads/CalculatorPython/CalculatorStyleSheet.qss") as file:
-    app.setStyleSheet(file.read())
+script_path = Path(sys.argv[0]).resolve()
+script_dir = script_path.parent
+qss_file_name = "CalculatorStyleSheet.qss"
+qss_file_path = script_dir / qss_file_name
+
+try:
+    with open(qss_file_path, "r") as file:
+        app.setStyleSheet(file.read())
+        print(f"Successfully loaded stylesheet from: {qss_file_path}")
+except FileNotFoundError:
+    print(f"Error: Stylesheet file not found at {qss_file_path}")
+except Exception as e:
+    print(f"An unexpected error occurred: {e}")
 
 class Calculator:
 
