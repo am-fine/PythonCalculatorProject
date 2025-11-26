@@ -1,7 +1,6 @@
-add error handling
+add error handling DONE
 make abetter display window (seperate from the actual calculations)
-figure out dynamic button resizing
+figure out dynamic button resizing DONE
 add keyboard input
 
-optional:
-add custom title bar
+explain all lines with comments

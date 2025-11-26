@@ -1,10 +1,12 @@
 #mainWindow {
-    background-color: #FBFBFB
+    min-width: 320px;
+    min-height: 430px;
+    background-color: #FBFBFB;
+
+    padding: 5px
 }
 
 #numberButton {
-    max-width: 110px;
-    max-height: 110px;
     min-width: 50px;
     min-height: 50px;
 
@@ -27,8 +29,6 @@
 }
 
 #operatorButton {
-    max-width: 110px;
-    max-height: 110px;
     min-width: 50px;
     min-height: 50px;
 
@@ -51,8 +51,6 @@
 }
 
 #equalButton {
-    max-width: 110px;
-    max-height: 110px;
     min-width: 50px;
     min-height: 50px;
 
@@ -76,7 +74,7 @@
 
 #inputWindow {
     color: #848793;
-    font-size: 50px;
+    font-size: 47px;
     font-family: "Consolas";
-    text-align: left
+    text-align: left;
 }

@@ -25,7 +25,7 @@ class Calculator:
     def __init__(self):
         self.window = QMainWindow()
         
-        self.window.resize(320,430)
+        self.window.resize(320,380)
         self.window.setObjectName("mainWindow")
         self.window.show()
         
@@ -33,8 +33,6 @@ class Calculator:
         self.window.setCentralWidget(self.central)
 
         self.layout = QGridLayout(self.central)
-        self.layout.setRowStretch(0, 1) # Put all extra vertical space in row 5
-        self.layout.setColumnStretch(1, 1) # Put all extra horizontal space in column 1
         self.layout.setSpacing(10)
         self.layout.setContentsMargins(10, 10, 10, 10)
         
@@ -42,7 +40,9 @@ class Calculator:
         
         self.input_window = QLabel()
         self.input_window.setObjectName("inputWindow")
-        self.layout.addWidget(self.input_window, 1, 0, 1, 4)
+        self.input_window.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        self.input_window.setContentsMargins(0, 10, 0, 10)
+        self.layout.addWidget(self.input_window, 1, 0, 1, 5)
         
         self.button_effects = []
         
@@ -60,16 +60,25 @@ class Calculator:
     @Slot()  
     def button_event(self, value):
         if value == "=":
-            answer = str(eval(self.current_input))
-            self.input_window.setText(answer)
-            self.current_input = ""
+            try:
+                answer = str(eval(self.current_input))
+                self.input_window.setText(answer)
+                self.current_input = ""
+            except SyntaxError:
+                self.input_window.setText("Syntax Error")
+                self.current_input = ""
+
         elif value == "CE":
             self.current_input = self.current_input[:-1]
+            
         elif value == "C":
             self.current_input = ""
+            
+        elif len(self.current_input) == 12:
+            self.current_input = self.current_input
         else:
             self.current_input += value
-        
+            
         if value != "=":
             self.input_window.setText(self.current_input)
         
@@ -101,6 +110,9 @@ class Calculator:
         
         for text, value, row, column, rspan, cspan in numbers:
             button = QPushButton(text)
+            
+            button.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+            
             def send_value(check, v=value):
                 self.button_event(v)
             
