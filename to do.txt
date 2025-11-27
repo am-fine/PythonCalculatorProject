@@ -1,8 +1,5 @@
 add error handling DONE
-make abetter display window (seperate from the actual calculations)
 figure out dynamic button resizing DONE
 add keyboard input
-add calculator history display
-add history (maybe)
 
 explain all lines with comments
