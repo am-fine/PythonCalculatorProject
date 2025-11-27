@@ -1,5 +1,8 @@
+## FINISHED ##
 add error handling DONE
 figure out dynamic button resizing DONE
-add keyboard input
+add keyboard input DONE
 
+## ONGOING ##
+add keybind information using QMenuBar
 explain all lines with comments

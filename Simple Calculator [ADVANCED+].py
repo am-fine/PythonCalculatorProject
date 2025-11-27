@@ -1,4 +1,6 @@
 import sys
+import pynput
+from pynput import keyboard
 from pathlib import Path
 from PySide6.QtWidgets import *
 from PySide6.QtGui import QColor
@@ -46,6 +48,34 @@ class Calculator:
         
         self.button_effects = []
         
+        self.buttons = [
+            # row 1 (bottom)
+            ("0", "0", "0", 5, 0, 1, 2),
+            (".", ".", ".", 5, 2, 1, 1),
+            ("=", "=", keyboard.Key.enter, 5, 3, 1, 2),
+            # row 2
+            ("1", "1", "1", 4, 0, 1, 1),
+            ("2", "2", "2", 4, 1, 1, 1),
+            ("3", "3", "3", 4, 2, 1, 1),
+            ("+", "+", "a", 4, 3, 1, 1),
+            ("-", "-", "s", 4, 4, 1, 1),
+            # row 3
+            ("4", "4", "4", 3, 0, 1, 1),
+            ("5", "5", "5", 3, 1, 1, 1),
+            ("6", "6", "6", 3, 2, 1, 1),
+            ("×", "*", "x", 3, 3, 1, 1),
+            ("÷", "/", "d", 3, 4, 1, 1),
+            # row 4 (top)
+            ("7", "7", "7", 2, 0, 1, 1),
+            ("8", "8", "8", 2, 1, 1, 1),
+            ("9", "9", "9", 2, 2, 1, 1),
+            ("CE", "CE", keyboard.Key.backspace, 2, 3, 1, 1),
+            ("C", "C", keyboard.Key.delete, 2, 4, 1, 1)
+        ]
+        
+        listener = keyboard.Listener(on_press=self.key_press, on_release=None)
+        listener.start()
+        
         self.create_buttons()
         
     def create_shadow(self):
@@ -55,7 +85,7 @@ class Calculator:
         self.button_shadow.setYOffset(3)
         self.button_shadow.setBlurRadius(4)
         self.button_shadow.setColor(QColor(0, 0, 0, 15))
-        return self.button_shadow
+        return self.button_shadow        
     
     @Slot()  
     def button_event(self, value):
@@ -81,34 +111,22 @@ class Calculator:
             
         if value != "=":
             self.input_window.setText(self.current_input)
+            
+    @Slot()
+    def key_press(self, key):
+        for text, value, key_value, *position in self.buttons:
+            try:
+                if key.char == key_value:
+                    self.button_event(value)
+            except AttributeError:
+                if key == key_value:
+                    self.button_event(value)
+                    
         
     def create_buttons(self):
-        numbers = [
-            # row 1 (bottom)
-            ("0", "0", 5, 0, 1, 2),
-            (".", ".", 5, 2, 1, 1),
-            ("=", "=", 5, 3, 1, 2),
-            # row 2
-            ("1", "1", 4, 0, 1, 1),
-            ("2", "2", 4, 1, 1, 1),
-            ("3", "3", 4, 2, 1, 1),
-            ("+", "+", 4, 3, 1, 1),
-            ("-", "-", 4, 4, 1, 1),
-            # row 3
-            ("4", "4", 3, 0, 1, 1),
-            ("5", "5", 3, 1, 1, 1),
-            ("6", "6", 3, 2, 1, 1),
-            ("×", "*", 3, 3, 1, 1),
-            ("÷", "/", 3, 4, 1, 1),
-            # row 4 (top)
-            ("7", "7", 2, 0, 1, 1),
-            ("8", "8", 2, 1, 1, 1),
-            ("9", "9", 2, 2, 1, 1),
-            ("CE", "CE", 2, 3, 1, 1),
-            ("C", "C", 2, 4, 1, 1)
-        ]
         
-        for text, value, row, column, rspan, cspan in numbers:
+        for text, value, key_value, row, column, rspan, cspan in self.buttons:
+            
             button = QPushButton(text)
             
             button.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
