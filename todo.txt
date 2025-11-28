@@ -4,5 +4,5 @@ figure out dynamic button resizing DONE
 add keyboard input DONE
 
 ## ONGOING ##
-add keybind information using QMenuBar
+add dialog box that happens when clicking "keybinds"
 explain all lines with comments

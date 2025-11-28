@@ -15,7 +15,7 @@ git clone https://github.com/am-fine/PythonCalculatorProject
 ```
 2. **Install Dependencies:**
 
-The calculator requires the module PySide6 to run, to install it, navigate inside the project folder:
+The calculator requires some modules to run, to install them, navigate inside the project folder:
 ```bash
 cd PythonCalculatorProject
 ```

@@ -1,26 +1,39 @@
 import sys
-import pynput
-from pynput import keyboard
 from pathlib import Path
 from PySide6.QtWidgets import *
 from PySide6.QtGui import QColor
 from PySide6.QtCore import Slot
+from pynput import keyboard
+import darkdetect
 
 app = QApplication([])
 
 script_path = Path(sys.argv[0]).resolve()
 script_dir = script_path.parent
-qss_file_name = "CalculatorStyleSheet.qss"
-qss_file_path = script_dir / qss_file_name
+light_qss = "light.qss"
+dark_qss = "dark.qss"
+light_file_path = script_dir / light_qss
+dark_file_path = script_dir / dark_qss
 
-try:
-    with open(qss_file_path, "r") as file:
-        app.setStyleSheet(file.read())
-        print(f"Successfully loaded stylesheet from: {qss_file_path}")
-except FileNotFoundError:
-    print(f"Error: Stylesheet file not found at {qss_file_path}")
-except Exception as e:
-    print(f"An unexpected error occurred: {e}")
+if darkdetect.isLight(): 
+    try:
+        with open(light_file_path, "r") as file:
+            app.setStyleSheet(file.read())
+            print(f"Successfully loaded stylesheet from: {light_file_path}")
+    except FileNotFoundError:
+        print(f"Error: Stylesheet file not found at {light_file_path}")
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+        
+if darkdetect.isDark():
+    try:
+        with open(dark_file_path, "r") as file:
+            app.setStyleSheet(file.read())
+            print(f"Successfully loaded stylesheet from: {dark_file_path}")
+    except FileNotFoundError:
+        print(f"Error: Stylesheet file not found at {dark_file_path}")
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
 
 class Calculator:
 
@@ -30,6 +43,15 @@ class Calculator:
         self.window.resize(320,380)
         self.window.setObjectName("mainWindow")
         self.window.show()
+        
+        self.menu_bar = self.window.menuBar()
+        self.menu_bar.setObjectName("menuBar")
+        self.info_menu = self.menu_bar.addMenu("Info")
+        
+        self.keybind_action = self.info_menu.addAction("Keybinds")
+        self.keybind_action.setObjectName("keybindAction")
+        
+        self.menu_bar.show()
         
         self.central = QWidget()
         self.window.setCentralWidget(self.central)
