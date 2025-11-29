@@ -90,9 +90,16 @@ QMenu::item#keybindAction {
     background-color: #CEE7F2
 }
 
-#inputWindow {
+#displayWindow {
     color: #848793;
     font-size: 47px;
+    font-family: "Consolas";
+    text-align: left;
+}
+
+#calculateWindow {
+    color: #848793;
+    font-size: 17px;
     font-family: "Consolas";
     text-align: left;
 }

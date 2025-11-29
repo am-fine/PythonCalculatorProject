@@ -1,15 +1,15 @@
 #mainWindow {
     min-width: 320px;
     min-height: 430px;
-    background-color: #181818;
+    background-color: #0F0F0F;
 
     padding: 5px
 }
 
 #menuBar {
-    background-color: #181818;
+    background-color: #0F0F0F;
     color: #CCCCCC;
-    border-bottom: 1px solid #2E2E2E
+    border-bottom: 1px solid #3D3D3D
 }
 
 #menuBar::item {
@@ -22,9 +22,9 @@
     min-height: 50px;
 
     color: #CCCCCC;
-    background-color: #1C1C1C;
+    background-color: #0F0F0F;
 
-    border: 1px solid #2E2E2E;
+    border: 1px solid #3D3D3D;
     border-radius: 4px;
 
     font-size: 30px;
@@ -32,11 +32,11 @@
 }
 
 #numberButton:hover {
-    background-color: #2C2C2C
+    background-color: #1E1E1E
 }
 
 #numberButton:pressed {
-    background-color: #1C1C1C
+    background-color: #0F0F0F
 }
 
 #operatorButton {
@@ -44,9 +44,9 @@
     min-height: 50px;
 
     color: #CCCCCC;
-    background-color: #2C2C2C;
+    background-color: #1D1D1D;
 
-    border: 1px solid #2E2E2E;
+    border: 1px solid #3D3D3D;
     border-radius: 4px;
 
     font-size: 30px;
@@ -54,11 +54,11 @@
 }
 
 #operatorButton:hover {
-    background-color: #424242
+    background-color: #2D2D2D
 }
 
 #operatorButton:pressed {
-    background-color: #2C2C2C
+    background-color: #1D1D1D
 }
 
 #equalButton {
@@ -66,9 +66,9 @@
     min-height: 50px;
 
     color: #CCCCCC;
-    background-color: #174c64;
+    background-color: #415863;
 
-    border: 1px solid #2E2E2E;
+    border: 1px solid #3D3D3D;
     border-radius: 4px;
 
     font-size: 30px;
@@ -76,16 +76,23 @@
 }
 
 #equalButton:hover {
-    background-color: #1d5b79
+    background-color: #5d7f8e
 }
 
 #equalButton:pressed {
-    background-color: #174c64
+    background-color: #415863
 }
 
-#inputWindow {
+#displayWindow {
     color: #CCCCCC;
     font-size: 47px;
+    font-family: "Consolas";
+    text-align: left;
+}
+
+#calculateWindow {
+    color: #CCCCCC;
+    font-size: 17px;
     font-family: "Consolas";
     text-align: left;
 }
