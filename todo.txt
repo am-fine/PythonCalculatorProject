@@ -1,9 +1,0 @@
-## FINISHED ##
-add error handling DONE
-figure out dynamic button resizing DONE
-add keyboard input DONE
-explain all lines with comments DONE
-
-## ONGOING ##
-add dialog box that happens when clicking "keybinds"
-add docstrings :(((((

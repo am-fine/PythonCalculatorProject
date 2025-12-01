@@ -6,24 +6,6 @@
     padding: 5px
 }
 
-#menuBar {
-    background-color: #FBFBFB;
-    color: #848793;
-    border-bottom: 1px solid #D5D5D5
-}
-
-#menuBar::item {
-    background: transparent;
-    padding: 5px 12px
-}   
-
-QMenu::item#keybindAction {
-    background-color: #FBFBFB;
-    color: #848793;
-    border: 1px solid #D5D5D5;
-    padding: 6px 12px;
-}
-
 #numberButton {
     min-width: 50px;
     min-height: 50px;

@@ -6,17 +6,6 @@
     padding: 5px
 }
 
-#menuBar {
-    background-color: #0F0F0F;
-    color: #CCCCCC;
-    border-bottom: 1px solid #3D3D3D
-}
-
-#menuBar::item {
-    background: transparent;
-    padding: 5px 12px
-}   
-
 #numberButton {
     min-width: 50px;
     min-height: 50px;
