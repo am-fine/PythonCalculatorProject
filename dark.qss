@@ -75,6 +75,7 @@
 #displayWindow {
     color: #CCCCCC;
     font-size: 47px;
+    qproperty-alignment: 'AlignRight | AlignVCenter';
     font-family: "Consolas";
     text-align: left;
 }
@@ -82,6 +83,7 @@
 #calculateWindow {
     color: #CCCCCC;
     font-size: 17px;
+    qproperty-alignment: 'AlignRight | AlignVCenter';
     font-family: "Consolas";
     text-align: left;
 }
